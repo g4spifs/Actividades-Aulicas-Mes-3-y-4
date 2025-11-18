@@ -1,0 +1,53 @@
+Evaluación Reflexiva – PHP & MySQL
+3er Año – Ingeniería en Sistemas de Información
+-------------------------------------------------
+Estudiante: Gaspar Sedoff
+Fecha: 16/11/2025
+
+Respuestas:
+-----------------------------------
+
+1. Porque es simple, rápido de implementar, barato de alojar y tiene una enorme cantidad de proyectos existentes (como WordPress) que lo mantienen vigente.
+
+2. PDO permite usar diferentes motores de base de datos, maneja mejor las excepciones y facilita las consultas preparadas, haciendo el código más seguro y flexible.
+
+3. PHP envía la consulta al servidor MySQL, este la procesa, ejecuta la operación y devuelve un resultado que PHP recibe y transforma en datos utilizables.
+
+4. Los errores de sintaxis impiden que el script se ejecute; los de lógica permiten que el código corra, pero hacen que la consulta falle o devuelva resultados incorrectos.
+
+5. Para liberar recursos del servidor, evitar conexiones innecesarias abiertas y mejorar el rendimiento de la aplicación.
+
+6. Usando consultas preparadas (PDO o mysqli), validando la entrada del usuario y evitando concatenar variables directamente en el SQL.
+
+7. Sanitizar limpia el dato para que no contenga caracteres peligrosos; validar verifica que el dato cumpla un formato o regla específica.
+
+8. El código valida el dato, rechaza valores inválidos y usa consultas preparadas para que no pueda modificar el SQL.
+
+9. Escapa caracteres peligrosos para reducir riesgo de inyección, pero no evita ataques complejos ni errores lógicos; las consultas preparadas son mucho más seguras.
+
+10. Registrando el error en un log privado y mostrando al usuario un mensaje genérico como “Error de conexión, intente más tarde”.
+
+11. Aulas(id, nombre, capacidad)
+Usuarios(id, nombre, rol)
+Reservas(id, id_aula, id_usuario, fecha, hora_inicio, hora_fin)
+Relaciones: Aulas 1–N Reservas, Usuarios 1–N Reservas.
+
+12. Midiendo tiempos: usar microtime() en el código y activar el log de consultas lentas en MySQL; comparar cuál parte tarda más.
+
+13. Al realizar operaciones que deben completarse todas juntas, por ejemplo: crear una reserva, actualizar el aula y registrar un historial. Si algo falla, se revierte.
+
+14. password_hash() es más seguro porque usa algoritmos modernos, agrega salt automático y es resistente a ataques por fuerza bruta; md5() está totalmente roto.
+
+15. Genera muchas consultas innecesarias, aumenta el tiempo de respuesta y sobrecarga el servidor; optimizarlo en una sola query es mucho más eficiente.
+
+16. PHP controla la lógica y MySQL almacena los datos; las consultas SQL deben ir en el Modelo, nunca en la Vista ni en el Controlador.
+
+17. Revisar configuración del servidor (versiones de PHP, permisos, rutas, extensión mysqli/pdo habilitada), variables de entorno y credenciales de la base de datos.
+
+18. Protegen credenciales, facilitan cambiar configuraciones según el entorno y evitan exponer datos sensibles en el código o repositorios.
+
+19. El código concatena $_POST directamente y permite inyección SQL.
+Mejora: usar consultas preparadas (PDO o mysqli) y validar el dato antes.
+
+20. Desactivar display_errors, activar log_errors y escribir los errores en un archivo seguro; mostrar solo mensajes genéricos al usuario.
+
